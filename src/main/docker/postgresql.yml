@@ -1,0 +1,11 @@
+version: '2'
+services:
+  kgotlasocietyscheme-postgresql:
+    image: postgres:12.1
+    # volumes:
+    #     - ~/volumes/jhipster/KgotlaSocietyScheme/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=KgotlaSocietyScheme
+      - POSTGRES_PASSWORD=
+    ports:
+      - 5432:5432

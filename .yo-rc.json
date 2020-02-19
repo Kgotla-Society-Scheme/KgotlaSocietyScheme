@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "za.co.kss"
+    },
+    "jhipsterVersion": "6.7.1",
+    "applicationType": "monolith",
+    "baseName": "KgotlaSocietyScheme",
+    "packageName": "za.co.kss",
+    "packageFolder": "za/co/kss",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "ZjUwNzQ1Y2NjMDUxNzhiYzA1YzZkM2VlYmViMWE3YzE3NjQwOGVmMzQ5MjY2Mjc1YThjZWU0NjI1NTgxM2QzYmZmOTc2YzBlZGJhNTAyYjhlNjMzMGM4ODdkMGQ0MjMzMzBmYjcxM2U3MGE4OWU4ODdlYTQzODMyMDFiNmNhMDA=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1582124282268,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "blueprints": []
+  }
+}
