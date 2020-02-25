@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="payment">
+            <h2><span>Payment</span> {{ payment.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Payment Date</span></dt>
+                <dd>
+                    <span>{{ payment.paymentDate }}</span>
+                </dd>
+                <dt><span>Attachment</span></dt>
+                <dd>
+                    <div *ngIf="payment.attachment">
+                        <a (click)="openFile(payment.attachmentContentType!, payment.attachment)">
+                            <img [src]="'data:' + payment.attachmentContentType + ';base64,' + payment.attachment" style="max-width: 100%;" alt="payment image"/>
+                        </a>
+                        {{ payment.attachmentContentType }}, {{ byteSize(payment.attachment) }}
+                    </div>
+                </dd>
+                <dt><span>Status</span></dt>
+                <dd>
+                    <span>{{ payment.status }}</span>
+                </dd>
+                <dt><span>Amount</span></dt>
+                <dd>
+                    <span>{{ payment.amount }}</span>
+                </dd>
+                <dt><span>User</span></dt>
+                <dd>
+                    {{ payment.userLogin }}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/payment', payment.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

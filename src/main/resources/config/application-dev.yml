@@ -45,9 +45,9 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/KgotlaSocietyScheme
-    username: KgotlaSocietyScheme
-    password:
+    url: jdbc:postgresql://localhost:5432/KgotlaSociety
+    username: postgres
+    password: 1ntegr@PassAdmin
     hikari:
       poolName: Hikari
       auto-commit: false
