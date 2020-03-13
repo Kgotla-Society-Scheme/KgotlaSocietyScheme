@@ -59,6 +59,27 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Column(length = 254, unique = true)
     private String email;
 
+
+    @Size(min = 13, max = 13)
+    @Column(name = "idnumber",length = 13, unique = true)
+    private String idNumber;
+
+    @Size(max = 50)
+    @Column(name = "dateOfBirth", length = 50)
+    private String dateOfBirth;
+
+    @Size(max = 50)
+    @Column(name = "gender", length = 50)
+    private String gender;
+
+    @Size(max = 15)
+    @Column(name = "title", length = 15)
+    private String title;
+
+    @Size(max = 12)
+    @Column(name = "mobileNumber", length = 12)
+    private String mobileNumber;
+
     @NotNull
     @Column(nullable = false)
     private boolean activated = false;
@@ -135,6 +156,45 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.lastName = lastName;
     }
 
+    public String getIdNumber() {
+        return idNumber;
+    }
+
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
+    }
     public String getEmail() {
         return email;
     }
@@ -221,6 +281,11 @@ public class User extends AbstractAuditingEntity implements Serializable {
             "login='" + login + '\'' +
             ", firstName='" + firstName + '\'' +
             ", lastName='" + lastName + '\'' +
+            ", idNumber='" + idNumber + '\'' +
+            ", dateOfBirth='" + dateOfBirth + '\'' +
+            ", gender='" + gender + '\'' +
+            ", title='" + title + '\'' +
+            ", mobileNumber='" + mobileNumber + '\'' +
             ", email='" + email + '\'' +
             ", imageUrl='" + imageUrl + '\'' +
             ", activated='" + activated + '\'' +

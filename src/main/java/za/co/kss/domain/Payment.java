@@ -40,6 +40,9 @@ public class Payment implements Serializable {
     @Column(name = "amount")
     private Double amount;
 
+    @Column(name = "reason")
+    private String reason;
+
     @ManyToOne
     @JsonIgnoreProperties("payments")
     private User user;
@@ -127,6 +130,14 @@ public class Payment implements Serializable {
         return this;
     }
 
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
     public void setUser(User user) {
         this.user = user;
     }
@@ -156,6 +167,7 @@ public class Payment implements Serializable {
             ", attachment='" + getAttachment() + "'" +
             ", attachmentContentType='" + getAttachmentContentType() + "'" +
             ", status='" + getStatus() + "'" +
+            ", reason='" + getReason() + "'" +
             ", amount=" + getAmount() +
             "}";
     }

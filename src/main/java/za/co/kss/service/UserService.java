@@ -107,6 +107,11 @@ public class UserService {
         newUser.setPassword(encryptedPassword);
         newUser.setFirstName(userDTO.getFirstName());
         newUser.setLastName(userDTO.getLastName());
+        newUser.setGender(userDTO.getGender());
+        newUser.setIdNumber(userDTO.getIdNumber());
+        newUser.setDateOfBirth(userDTO.getDateOfBirth());
+        newUser.setMobileNumber(userDTO.getMobileNumber());
+        newUser.setTitle(userDTO.getTitle());
         if (userDTO.getEmail() != null) {
             newUser.setEmail(userDTO.getEmail().toLowerCase());
         }
@@ -140,6 +145,11 @@ public class UserService {
         user.setLogin(userDTO.getLogin().toLowerCase());
         user.setFirstName(userDTO.getFirstName());
         user.setLastName(userDTO.getLastName());
+        user.setTitle(userDTO.getTitle());
+        user.setMobileNumber(userDTO.getMobileNumber());
+        user.setDateOfBirth(userDTO.getDateOfBirth());
+        user.setIdNumber(userDTO.getIdNumber());
+        user.setTitle(userDTO.getTitle());
         if (userDTO.getEmail() != null) {
             user.setEmail(userDTO.getEmail().toLowerCase());
         }
@@ -177,12 +187,17 @@ public class UserService {
      * @param langKey   language key.
      * @param imageUrl  image URL of user.
      */
-    public void updateUser(String firstName, String lastName, String email, String langKey, String imageUrl) {
+    public void updateUser(String firstName, String lastName,String title,String idNumber,String gender,String mobileNumber,String dateOfBirth, String email, String langKey, String imageUrl) {
         SecurityUtils.getCurrentUserLogin()
             .flatMap(userRepository::findOneByLogin)
             .ifPresent(user -> {
                 user.setFirstName(firstName);
                 user.setLastName(lastName);
+                user.setTitle(title);
+                user.setIdNumber(idNumber);
+                user.setDateOfBirth(dateOfBirth);
+                user.setMobileNumber(mobileNumber);
+                user.setGender(gender);
                 if (email != null) {
                     user.setEmail(email.toLowerCase());
                 }

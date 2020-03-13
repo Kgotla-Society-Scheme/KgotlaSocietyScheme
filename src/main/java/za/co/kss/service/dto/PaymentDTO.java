@@ -22,6 +22,8 @@ public class PaymentDTO implements Serializable {
 
     private Double amount;
 
+    private String reason;
+
 
     private Long userId;
 
@@ -57,6 +59,14 @@ public class PaymentDTO implements Serializable {
 
     public void setAttachmentContentType(String attachmentContentType) {
         this.attachmentContentType = attachmentContentType;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
     }
 
     public String getStatus() {
@@ -120,6 +130,7 @@ public class PaymentDTO implements Serializable {
             ", attachment='" + getAttachment() + "'" +
             ", status='" + getStatus() + "'" +
             ", amount=" + getAmount() +
+            ", reason=" + getReason() +
             ", userId=" + getUserId() +
             ", userLogin='" + getUserLogin() + "'" +
             "}";

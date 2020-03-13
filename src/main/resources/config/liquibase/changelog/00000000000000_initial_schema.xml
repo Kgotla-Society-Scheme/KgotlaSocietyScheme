@@ -25,6 +25,11 @@
             <column name="password_hash" type="varchar(60)"/>
             <column name="first_name" type="varchar(50)"/>
             <column name="last_name" type="varchar(50)"/>
+            <column name="date_of_birth" type="varchar(30)"/>
+            <column name="gender" type="varchar(6)"/>
+            <column name="idnumber" type="varchar(13)"/>
+            <column name="title" type="varchar(13)"/>
+            <column name="mobile_number" type="varchar(13)"/>
             <column name="email" type="varchar(191)">
                 <constraints unique="true" nullable="true" uniqueConstraintName="ux_user_email"/>
             </column>

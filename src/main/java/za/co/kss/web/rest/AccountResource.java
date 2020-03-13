@@ -63,6 +63,7 @@ public class AccountResource {
         if (!checkPasswordLength(managedUserVM.getPassword())) {
             throw new InvalidPasswordException();
         }
+        System.out.println("About to register a user");
         User user = userService.registerUser(managedUserVM, managedUserVM.getPassword());
         mailService.sendActivationEmail(user);
     }
@@ -124,7 +125,7 @@ public class AccountResource {
         if (!user.isPresent()) {
             throw new AccountResourceException("User could not be found");
         }
-        userService.updateUser(userDTO.getFirstName(), userDTO.getLastName(), userDTO.getEmail(),
+        userService.updateUser(userDTO.getFirstName(), userDTO.getLastName(), userDTO.getTitle(),userDTO.getIdNumber(),userDTO.getGender(),userDTO.getMobileNumber(),userDTO.getDateOfBirth(),userDTO.getEmail(),
             userDTO.getLangKey(), userDTO.getImageUrl());
     }
 

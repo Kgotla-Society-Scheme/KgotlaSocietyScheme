@@ -28,6 +28,21 @@ public class UserDTO {
     @Size(max = 50)
     private String lastName;
 
+    @Size(max = 13)
+    private String idNumber;
+
+    @Size(max = 50)
+    private String dateOfBirth;
+
+    @Size(max = 50)
+    private String gender;
+
+    @Size(max = 50)
+    private String title;
+
+    @Size(max = 50)
+    private String mobileNumber;
+
     @Email
     @Size(min = 5, max = 254)
     private String email;
@@ -41,6 +56,46 @@ public class UserDTO {
     private String langKey;
 
     private String createdBy;
+
+    public String getIdNumber() {
+        return idNumber;
+    }
+
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
+    }
 
     private Instant createdDate;
 
@@ -59,6 +114,11 @@ public class UserDTO {
         this.login = user.getLogin();
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();
+        this.gender = user.getGender();
+        this.idNumber = user.getIdNumber();
+        this.title = user.getTitle();
+        this.mobileNumber = user.getMobileNumber();
+        this.dateOfBirth = user.getDateOfBirth();
         this.email = user.getEmail();
         this.activated = user.getActivated();
         this.imageUrl = user.getImageUrl();
