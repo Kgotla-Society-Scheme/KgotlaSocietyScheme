@@ -35,12 +35,14 @@
 
                 <div class="form-group">
                     <label class="form-control-label" for="lastName">Last Name</label>
-                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Your last name"
-                           formControlName="lastName">
+                    <input class="form-control" formControlName="lastName" id="lastName" name="lastName"
+                           placeholder="Your last name"
+                           type="text">
 
-                    <div *ngIf="settingsForm.get('lastName')!.invalid && (settingsForm.get('lastName')!.dirty || settingsForm.get('lastName')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="settingsForm.get('lastName')?.errors?.required">
+                    <div
+                        *ngIf="settingsForm.get('lastName')!.invalid && (settingsForm.get('lastName')!.dirty || settingsForm.get('lastName')!.touched)">
+                        <small *ngIf="settingsForm.get('lastName')?.errors?.required"
+                               class="form-text text-danger">
                             Your last name is required.
                         </small>
 
@@ -49,9 +51,114 @@
                             Your last name is required to be at least 1 character.
                         </small>
 
-                        <small class="form-text text-danger"
-                               *ngIf="settingsForm.get('lastName')?.errors?.maxlength">
+                        <small *ngIf="settingsForm.get('lastName')?.errors?.maxlength"
+                               class="form-text text-danger">
                             Your last name cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="idNumber">ID Number</label>
+                    <input class="form-control" formControlName="idNumber" id="idNumber" name="idNumber"
+                           placeholder="ID Number"
+                           type="text">
+
+                    <div
+                        *ngIf="settingsForm.get('idNumber')!.invalid && (settingsForm.get('idNumber')!.dirty || settingsForm.get('idNumber')!.touched)">
+                        <small *ngIf="settingsForm.get('idNumber')?.errors?.required"
+                               class="form-text text-danger">
+                            Your ID Number is required.
+                        </small>
+
+                        <small *ngIf="settingsForm.get('idNumber')?.errors?.minlength"
+                               class="form-text text-danger">
+                            Your ID Number is required to be at least 13 character.
+                        </small>
+
+                        <small *ngIf="settingsForm.get('lastName')?.errors?.maxlength"
+                               class="form-text text-danger">
+                            Your last name cannot be longer than 14 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="dateOfBirth">Date Of Birth</label>
+                    <input class="form-control" formControlName="dateOfBirth" id="dateOfBirth" name="dateOfBirth"
+                           placeholder="Your Date Of Birth"
+                           type="text">
+                    <div
+                        *ngIf="settingsForm.get('dateOfBirth')!.invalid && (settingsForm.get('dateOfBirth')!.dirty || settingsForm.get('dateOfBirth')!.touched)">
+                        <small *ngIf="settingsForm.get('dateOfBirth')?.errors?.required"
+                               class="form-text text-danger">
+                            Your Date Of Birth is required.
+                        </small>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="title">Title</label>
+                    <select class="form-control" formControlName="title" id="title" name="title">
+                        <option value="">Please select your title</option>
+                        <option value="Mr">Mr</option>
+                        <option value="Mrs">Mrs</option>
+                        <option value="Miss">Miss</option>
+                        <option value="Dr">Dr</option>
+                        <div
+                            *ngIf="settingsForm.get('title')!.invalid && (settingsForm.get('title')!.dirty || settingsForm.get('title')!.touched)">
+                            <small *ngIf="settingsForm.get('title')?.errors?.required"
+                                   class="form-text text-danger">
+                                Your title is required.
+                            </small>
+                        </div>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="gender">Gender</label>
+                    <select class="form-control" formControlName="gender" id="gender" name="gender">
+                        <option value="">Please select your gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <div
+                            *ngIf="settingsForm.get('gender')!.invalid && (settingsForm.get('gender')!.dirty || settingsForm.get('gender')!.touched)">
+                            <small *ngIf="settingsForm.get('gender')?.errors?.required"
+                                   class="form-text text-danger">
+                                Your gender is required.
+                            </small>
+                        </div>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="form-control-label" for="mobileNumber">Mobile Number</label>
+                    <input #mobileNumber class="form-control" formControlName="mobileNumber" id="mobileNumber"
+                           name="mobileNumber"
+                           placeholder="Your mobileNumber" type="text">
+
+                    <div
+                        *ngIf="settingsForm.get('mobileNumber')!.invalid && (settingsForm.get('mobileNumber')!.dirty || settingsForm.get('mobileNumber')!.touched)">
+                        <small *ngIf="settingsForm.get('mobileNumber')?.errors?.required"
+                               class="form-text text-danger">
+                            Your Mobile Number is required.
+                        </small>
+
+                        <small *ngIf="settingsForm.get('mobileNumber')?.errors?.minlength"
+                               class="form-text text-danger">
+                            Your Mobile Number is required to be at least 10 character.
+                        </small>
+
+                        <small *ngIf="settingsForm.get('mobileNumber')?.errors?.maxlength"
+                               class="form-text text-danger">
+                            Your Mobile Number cannot be longer than 50 characters.
+                        </small>
+
+                        <small *ngIf="settingsForm.get('mobileNumber')?.errors?.pattern"
+                               class="form-text text-danger">
+                            Your Mobile Number can only contain letters and digits.
                         </small>
                     </div>
                 </div>
@@ -61,7 +168,8 @@
                     <input type="email" class="form-control" id="email" name="email" placeholder="Your email"
                            formControlName="email">
 
-                    <div *ngIf="settingsForm.get('email')!.invalid && (settingsForm.get('email')!.dirty || settingsForm.get('email')!.touched)">
+                    <div
+                        *ngIf="settingsForm.get('email')!.invalid && (settingsForm.get('email')!.dirty || settingsForm.get('email')!.touched)">
                         <small class="form-text text-danger"
                                *ngIf="settingsForm.get('email')?.errors?.required">
                             Your email is required.

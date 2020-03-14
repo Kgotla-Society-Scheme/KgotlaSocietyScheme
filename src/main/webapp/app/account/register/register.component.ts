@@ -25,6 +25,10 @@ export class RegisterComponent implements AfterViewInit {
     firstName: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
     lastName: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
     idNumber: ['', [Validators.required, Validators.minLength(13), Validators.maxLength(13)]],
+    dateOfBirth: ['', [Validators.required]],
+    title: ['', [Validators.required]],
+    gender: ['', [Validators.required]],
+    mobileNumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
     email: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(254), Validators.email]],
     password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
     confirmPassword: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]]
@@ -57,9 +61,26 @@ export class RegisterComponent implements AfterViewInit {
       const firstName = this.registerForm.get(['firstName'])!.value;
       const lastName = this.registerForm.get(['lastName'])!.value;
       const idNumber = this.registerForm.get(['idNumber'])!.value;
+      const dateOfBirth = this.registerForm.get('dateOfBirth')!.value;
+      const title = this.registerForm.get('title')!.value;
+      const gender = this.registerForm.get('gender')!.value;
+      const mobileNumber = this.registerForm.get('mobileNumber')!.value;
+
       const email = this.registerForm.get(['email'])!.value;
 
-      this.registerService.save({ login, firstName, lastName, email, password, langKey: 'en' }).subscribe(
+      this.registerService.save({
+        login,
+        firstName,
+        lastName,
+        idNumber,
+        dateOfBirth,
+        title,
+        gender,
+        mobileNumber,
+        email,
+        password,
+        langKey: 'en'
+      }).subscribe(
         () => (this.success = true),
         response => this.processError(response)
       );

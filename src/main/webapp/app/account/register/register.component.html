@@ -28,6 +28,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <form name="form" role="form" (ngSubmit)="register()" [formGroup]="registerForm" *ngIf="!success">
+
                 <div class="form-group">
                     <label class="form-control-label" for="login">Username</label>
                     <input type="text" class="form-control" id="login" name="login" placeholder="Your username"
@@ -143,11 +144,92 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="form-control-label" for="dateOfBirth">Date Of Birth</label>
+                    <input #dateOfBirth class="form-control" formControlName="dateOfBirth" id="dateOfBirth"
+                           name="dateOfBirth"
+                           placeholder="Your Date Of Birth" type="date">
+                    <div
+                        *ngIf="registerForm.get('dateOfBirth')!.invalid && (registerForm.get('dateOfBirth')!.dirty || registerForm.get('dateOfBirth')!.touched)">
+                        <small *ngIf="registerForm.get('dateOfBirth')?.errors?.required"
+                               class="form-text text-danger">
+                            Your Date Of Birth is required.
+                        </small>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="title">Title</label>
+                    <select #title class="form-control" formControlName="title" id="title" name="title">
+                        <option value="">Please select your title</option>
+                        <option value="Mr">Mr</option>
+                        <option value="Mrs">Mrs</option>
+                        <option value="Miss">Miss</option>
+                        <option value="Dr">Dr</option>
+                        <div
+                            *ngIf="registerForm.get('title')!.invalid && (registerForm.get('title')!.dirty || registerForm.get('title')!.touched)">
+                            <small *ngIf="registerForm.get('title')?.errors?.required"
+                                   class="form-text text-danger">
+                                Your title is required.
+                            </small>
+                        </div>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="title">Gender</label>
+                    <select #gender class="form-control" formControlName="gender" id="gender" name="gender">
+                        <option value="">Please select your gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <div
+                            *ngIf="registerForm.get('gender')!.invalid && (registerForm.get('gender')!.dirty || registerForm.get('gender')!.touched)">
+                            <small *ngIf="registerForm.get('gender')?.errors?.required"
+                                   class="form-text text-danger">
+                                Your gender is required.
+                            </small>
+                        </div>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="form-control-label" for="mobileNumber">Mobile Number</label>
+                    <input #mobileNumber class="form-control" formControlName="mobileNumber" id="mobileNumber"
+                           name="mobileNumber"
+                           placeholder="Your ID Number" type="text">
+
+                    <div
+                        *ngIf="registerForm.get('mobileNumber')!.invalid && (registerForm.get('mobileNumber')!.dirty || registerForm.get('mobileNumber')!.touched)">
+                        <small *ngIf="registerForm.get('mobileNumber')?.errors?.required"
+                               class="form-text text-danger">
+                            Your Mobile Number is required.
+                        </small>
+
+                        <small *ngIf="registerForm.get('mobileNumber')?.errors?.minlength"
+                               class="form-text text-danger">
+                            Your Mobile Number is required to be at least 10 character.
+                        </small>
+
+                        <small *ngIf="registerForm.get('mobileNumber')?.errors?.maxlength"
+                               class="form-text text-danger">
+                            Your Mobile Number cannot be longer than 50 characters.
+                        </small>
+
+                        <small *ngIf="registerForm.get('mobileNumber')?.errors?.pattern"
+                               class="form-text text-danger">
+                            Your Mobile Number can only contain letters and digits.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <label class="form-control-label" for="email">Email</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Your email"
                            formControlName="email">
 
-                    <div *ngIf="registerForm.get('email')!.invalid && (registerForm.get('email')!.dirty || registerForm.get('email')!.touched)">
+                    <div
+                        *ngIf="registerForm.get('email')!.invalid && (registerForm.get('email')!.dirty || registerForm.get('email')!.touched)">
                         <small class="form-text text-danger"
                                *ngIf="registerForm.get('email')?.errors?.required">
                             Your email is required.

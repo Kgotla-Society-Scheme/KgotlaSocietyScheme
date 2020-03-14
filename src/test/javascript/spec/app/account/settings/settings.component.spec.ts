@@ -16,6 +16,11 @@ describe('Component Tests', () => {
     const accountValues: Account = {
       firstName: 'John',
       lastName: 'Doe',
+      idNumber: '8705454554555',
+      dateOfBirth: '19870331',
+      title: 'Mr',
+      gender: 'Male',
+      mobileNumber: '0687888788',
       activated: true,
       email: 'john.doe@mail.com',
       langKey: 'en',
@@ -47,6 +52,11 @@ describe('Component Tests', () => {
       const settingsFormValues = {
         firstName: 'John',
         lastName: 'Doe',
+        idNumber: '8705454554555',
+        dateOfBirth: '19870331',
+        title: 'Mr',
+        gender: 'Male',
+        mobileNumber: '0687888788',
         email: 'john.doe@mail.com'
       };
 

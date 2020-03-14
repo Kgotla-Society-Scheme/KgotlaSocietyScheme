@@ -54,7 +54,8 @@
                     <input type="text" class="form-control" name="lastName"
                            formControlName="lastName">
 
-                    <div *ngIf="editForm.get('lastName')!.invalid && (editForm.get('lastName')!.dirty || editForm.get('lastName')!.touched)">
+                    <div
+                        *ngIf="editForm.get('lastName')!.invalid && (editForm.get('lastName')!.dirty || editForm.get('lastName')!.touched)">
                         <small class="form-text text-danger"
                                *ngIf="editForm.get('lastName')?.errors?.maxlength">
                             This field cannot be longer than 50 characters.
@@ -63,10 +64,104 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="form-control-label">ID number</label>
+                    <input class="form-control" formControlName="idNumber" name="idNumber" type="text">
+
+                    <div
+                        *ngIf="editForm.get('idNumber')!.invalid && (editForm.get('idNumber')!.dirty || editForm.get('idNumber')!.touched)">
+                        <small *ngIf="editForm.get('idNumber')?.errors?.maxlength"
+                               class="form-text text-danger">
+                            This field must contain 13 numbers.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="dateOfBirth">Date Of Birth</label>
+                    <input class="form-control" formControlName="dateOfBirth" id="dateOfBirth" name="dateOfBirth"
+                           placeholder="Your Date Of Birth"
+                           type="date">
+                    <div
+                        *ngIf="editForm.get('dateOfBirth')!.invalid && (editForm.get('dateOfBirth')!.dirty || editForm.get('dateOfBirth')!.touched)">
+                        <small *ngIf="editForm.get('dateOfBirth')?.errors?.required"
+                               class="form-text text-danger">
+                            Your Date Of Birth is required.
+                        </small>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="title">Title</label>
+                    <select class="form-control" formControlName="title" id="title" name="title">
+                        <option value="">Please select your title</option>
+                        <option value="Mr">Mr</option>
+                        <option value="Mrs">Mrs</option>
+                        <option value="Miss">Miss</option>
+                        <option value="Dr">Dr</option>
+                        <div
+                            *ngIf="editForm.get('title')!.invalid && (editForm.get('title')!.dirty || editForm.get('title')!.touched)">
+                            <small *ngIf="editForm.get('title')?.errors?.required"
+                                   class="form-text text-danger">
+                                Your title is required.
+                            </small>
+                        </div>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="title">Gender</label>
+                    <select class="form-control" formControlName="gender" id="gender" name="gender">
+                        <option value="">Please select your gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <div
+                            *ngIf="editForm.get('gender')!.invalid && (editForm.get('gender')!.dirty || editForm.get('gender')!.touched)">
+                            <small *ngIf="editForm.get('gender')?.errors?.required"
+                                   class="form-text text-danger">
+                                Your gender is required.
+                            </small>
+                        </div>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="form-control-label" for="mobileNumber">Mobile Number</label>
+                    <input class="form-control" formControlName="mobileNumber" id="mobileNumber" name="mobileNumber"
+                           placeholder="Your Number Number"
+                           type="text">
+
+                    <div
+                        *ngIf="editForm.get('mobileNumber')!.invalid && (editForm.get('mobileNumber')!.dirty || editForm.get('mobileNumber')!.touched)">
+                        <small *ngIf="editForm.get('mobileNumber')?.errors?.required"
+                               class="form-text text-danger">
+                            Your Mobile Number is required.
+                        </small>
+
+                        <small *ngIf="editForm.get('mobileNumber')?.errors?.minlength"
+                               class="form-text text-danger">
+                            Your Mobile Number is required to be at least 10 character.
+                        </small>
+
+                        <small *ngIf="editForm.get('mobileNumber')?.errors?.maxlength"
+                               class="form-text text-danger">
+                            Your Mobile Number cannot be longer than 50 characters.
+                        </small>
+
+                        <small *ngIf="editForm.get('mobileNumber')?.errors?.pattern"
+                               class="form-text text-danger">
+                            Your Mobile Number can only contain letters and digits.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <label class="form-control-label">Email</label>
                     <input type="email" class="form-control" name="email" formControlName="email">
 
-                    <div *ngIf="editForm.get('email')!.invalid && (editForm.get('email')!.dirty || editForm.get('email')!.touched)">
+                    <div
+                        *ngIf="editForm.get('email')!.invalid && (editForm.get('email')!.dirty || editForm.get('email')!.touched)">
                         <small class="form-text text-danger"
                                *ngIf="editForm.get('email')?.errors?.required">
                             This field is required.
