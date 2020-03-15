@@ -29,6 +29,18 @@
         {
             "fieldName": "amount",
             "fieldType": "Double"
+        },
+        {
+            "fieldName": "reason",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "modifiedDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "modifiedBy",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20200219154413",

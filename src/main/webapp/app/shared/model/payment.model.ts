@@ -7,6 +7,9 @@ export interface IPayment {
   attachment?: any;
   status?: string;
   amount?: number;
+  reason?: string;
+  modifiedDate?: Moment;
+  modifiedBy?: string;
   userLogin?: string;
   userId?: number;
 }
@@ -19,6 +22,9 @@ export class Payment implements IPayment {
     public attachment?: any,
     public status?: string,
     public amount?: number,
+    public reason?: string,
+    public modifiedDate?: Moment,
+    public modifiedBy?: string,
     public userLogin?: string,
     public userId?: number
   ) {}
