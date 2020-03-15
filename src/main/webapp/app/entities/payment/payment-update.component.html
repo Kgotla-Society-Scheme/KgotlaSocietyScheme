@@ -1,0 +1,96 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-payment-heading">Create or edit a Payment</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_paymentDate">Payment Date</label>
+                    <div class="input-group">
+                        <input id="field_paymentDate" type="text" class="form-control" name="paymentDate" ngbDatepicker #paymentDateDp="ngbDatepicker" formControlName="paymentDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="paymentDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_attachment">Attachment</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('attachmentContentType')!.value + ';base64,' + editForm.get('attachment')!.value" style="max-height: 100px;" *ngIf="editForm.get('attachment')!.value" alt="payment image"/>
+                        <div *ngIf="editForm.get('attachment')!.value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{ editForm.get('attachmentContentType')!.value }}, {{ byteSize(editForm.get('attachment')!.value) }}</span>
+                            <button type="button" (click)="clearInputImage('attachment', 'attachmentContentType', 'file_attachment')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_attachment" (change)="setFileData($event, 'attachment', true)" accept="image/*"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="attachment" id="field_attachment"
+                           formControlName="attachment"/>
+                    <input type="hidden" class="form-control" name="attachmentContentType" id="field_attachmentContentType"
+                           formControlName="attachmentContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_status">Status</label>
+                    <input type="text" class="form-control" name="status" id="field_status"
+                           formControlName="status"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_amount">Amount</label>
+                    <input type="number" class="form-control" name="amount" id="field_amount"
+                           formControlName="amount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_reason">Reason</label>
+                    <input type="text" class="form-control" name="reason" id="field_reason"
+                           formControlName="reason"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_modifiedDate">Modified Date</label>
+                    <div class="input-group">
+                        <input id="field_modifiedDate" type="text" class="form-control" name="modifiedDate" ngbDatepicker #modifiedDateDp="ngbDatepicker" formControlName="modifiedDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="modifiedDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_modifiedBy">Modified By</label>
+                    <input type="text" class="form-control" name="modifiedBy" id="field_modifiedBy"
+                           formControlName="modifiedBy"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" formControlName="userId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.login }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
