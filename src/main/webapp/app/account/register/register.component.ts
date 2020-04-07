@@ -34,6 +34,7 @@ export class RegisterComponent implements AfterViewInit {
     confirmPassword: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]]
   });
 
+
   constructor(
     private loginModalService: LoginModalService,
     private registerService: RegisterService,

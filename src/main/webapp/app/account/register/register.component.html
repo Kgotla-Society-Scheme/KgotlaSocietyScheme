@@ -146,8 +146,7 @@
                 <div class="form-group">
                     <label class="form-control-label" for="dateOfBirth">Date Of Birth</label>
                     <input #dateOfBirth class="form-control" formControlName="dateOfBirth" id="dateOfBirth"
-                           name="dateOfBirth"
-                           placeholder="Your Date Of Birth" type="date">
+                           name="dateOfBirth" placeholder="Your Date Of Birth" type="date"/>
                     <div
                         *ngIf="registerForm.get('dateOfBirth')!.invalid && (registerForm.get('dateOfBirth')!.dirty || registerForm.get('dateOfBirth')!.touched)">
                         <small *ngIf="registerForm.get('dateOfBirth')?.errors?.required"
@@ -197,7 +196,7 @@
                     <label class="form-control-label" for="mobileNumber">Mobile Number</label>
                     <input #mobileNumber class="form-control" formControlName="mobileNumber" id="mobileNumber"
                            name="mobileNumber"
-                           placeholder="Your ID Number" type="text">
+                           placeholder="Mobile Number" type="text">
 
                     <div
                         *ngIf="registerForm.get('mobileNumber')!.invalid && (registerForm.get('mobileNumber')!.dirty || registerForm.get('mobileNumber')!.touched)">
