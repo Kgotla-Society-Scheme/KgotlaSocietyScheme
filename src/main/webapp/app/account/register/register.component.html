@@ -29,196 +29,200 @@
         <div class="col-md-8">
             <form name="form" role="form" (ngSubmit)="register()" [formGroup]="registerForm" *ngIf="!success">
 
-                <div class="form-group">
-                    <label class="form-control-label" for="login">Username</label>
-                    <input type="text" class="form-control" id="login" name="login" placeholder="Your username"
-                           formControlName="login" #login>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" for="login">Username</label>
+                        <input type="text" class="form-control" id="login" name="login" placeholder="Your username"
+                               formControlName="login" #login>
 
-                    <div *ngIf="registerForm.get('login')!.invalid && (registerForm.get('login')!.dirty || registerForm.get('login')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="registerForm.get('login')?.errors?.required">
-                            Your username is required.
-                        </small>
+                        <div *ngIf="registerForm.get('login')!.invalid && (registerForm.get('login')!.dirty || registerForm.get('login')!.touched)">
+                            <small class="form-text text-danger"
+                                   *ngIf="registerForm.get('login')?.errors?.required">
+                                Your username is required.
+                            </small>
 
-                        <small class="form-text text-danger"
-                               *ngIf="registerForm.get('login')?.errors?.minlength">
-                            Your username is required to be at least 1 character.
-                        </small>
+                            <small class="form-text text-danger"
+                                   *ngIf="registerForm.get('login')?.errors?.minlength">
+                                Your username is required to be at least 1 character.
+                            </small>
 
-                        <small class="form-text text-danger"
-                               *ngIf="registerForm.get('login')?.errors?.maxlength">
-                            Your username cannot be longer than 50 characters.
-                        </small>
+                            <small class="form-text text-danger"
+                                   *ngIf="registerForm.get('login')?.errors?.maxlength">
+                                Your username cannot be longer than 50 characters.
+                            </small>
 
-                        <small class="form-text text-danger"
-                               *ngIf="registerForm.get('login')?.errors?.pattern">
-                            Your username can only contain letters and digits.
-                        </small>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" for="firstName">First Name</label>
-                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Your First Name"
-                           formControlName="firstName" #firstName>
-
-                    <div *ngIf="registerForm.get('firstName')!.invalid && (registerForm.get('firstName')!.dirty || registerForm.get('firstName')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="registerForm.get('firstName')?.errors?.required">
-                            Your First Name is required.
-                        </small>
-
-                        <small class="form-text text-danger"
-                               *ngIf="registerForm.get('firstName')?.errors?.minlength">
-                            Your First Name is required to be at least 1 character.
-                        </small>
-
-                        <small class="form-text text-danger"
-                               *ngIf="registerForm.get('firstName')?.errors?.maxlength">
-                            Your First Name cannot be longer than 50 characters.
-                        </small>
-
-                        <small class="form-text text-danger"
-                               *ngIf="registerForm.get('firstName')?.errors?.pattern">
-                            Your First Name can only contain letters and digits.
-                        </small>
-                    </div>
-                </div>
-
-
-
-                <div class="form-group">
-                    <label class="form-control-label" for="lastName">Last Name</label>
-                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Your Last Name"
-                           formControlName="lastName" #lastName>
-
-                    <div *ngIf="registerForm.get('lastName')!.invalid && (registerForm.get('lastName')!.dirty || registerForm.get('lastName')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="registerForm.get('lastName')?.errors?.required">
-                            Your Last Name is required.
-                        </small>
-
-                        <small class="form-text text-danger"
-                               *ngIf="registerForm.get('lastName')?.errors?.minlength">
-                            Your Last Name is required to be at least 1 character.
-                        </small>
-
-                        <small class="form-text text-danger"
-                               *ngIf="registerForm.get('lastName')?.errors?.maxlength">
-                            Your Last Name cannot be longer than 50 characters.
-                        </small>
-
-                        <small class="form-text text-danger"
-                               *ngIf="registerForm.get('lastName')?.errors?.pattern">
-                            Your Last Name can only contain letters and digits.
-                        </small>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" for="idNumber">ID Number</label>
-                    <input type="text" class="form-control" id="idNumber" name="idNumber" placeholder="Your ID Number"
-                           formControlName="idNumber" #idNumber>
-
-                    <div *ngIf="registerForm.get('idNumber')!.invalid && (registerForm.get('idNumber')!.dirty || registerForm.get('idNumber')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="registerForm.get('idNumber')?.errors?.required">
-                            Your ID Number is required.
-                        </small>
-
-                        <small class="form-text text-danger"
-                               *ngIf="registerForm.get('idNumber')?.errors?.minlength">
-                            Your ID Number is required to be at least 1 character.
-                        </small>
-
-                        <small class="form-text text-danger"
-                               *ngIf="registerForm.get('idNumber')?.errors?.maxlength">
-                            Your ID Number cannot be longer than 50 characters.
-                        </small>
-
-                        <small class="form-text text-danger"
-                               *ngIf="registerForm.get('idNumber')?.errors?.pattern">
-                            Your ID Number can only contain letters and digits.
-                        </small>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" for="dateOfBirth">Date Of Birth</label>
-                    <input #dateOfBirth class="form-control" formControlName="dateOfBirth" id="dateOfBirth"
-                           name="dateOfBirth" placeholder="Your Date Of Birth" type="date"/>
-                    <div
-                        *ngIf="registerForm.get('dateOfBirth')!.invalid && (registerForm.get('dateOfBirth')!.dirty || registerForm.get('dateOfBirth')!.touched)">
-                        <small *ngIf="registerForm.get('dateOfBirth')?.errors?.required"
-                               class="form-text text-danger">
-                            Your Date Of Birth is required.
-                        </small>
-
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" for="title">Title</label>
-                    <select #title class="form-control" formControlName="title" id="title" name="title">
-                        <option value="">Please select your title</option>
-                        <option value="Mr">Mr</option>
-                        <option value="Mrs">Mrs</option>
-                        <option value="Miss">Miss</option>
-                        <option value="Dr">Dr</option>
-                        <div
-                            *ngIf="registerForm.get('title')!.invalid && (registerForm.get('title')!.dirty || registerForm.get('title')!.touched)">
-                            <small *ngIf="registerForm.get('title')?.errors?.required"
-                                   class="form-text text-danger">
-                                Your title is required.
+                            <small class="form-text text-danger"
+                                   *ngIf="registerForm.get('login')?.errors?.pattern">
+                                Your username can only contain letters and digits.
                             </small>
                         </div>
-                    </select>
-                </div>
+                    </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" for="title">Gender</label>
-                    <select #gender class="form-control" formControlName="gender" id="gender" name="gender">
-                        <option value="">Please select your gender</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <div
-                            *ngIf="registerForm.get('gender')!.invalid && (registerForm.get('gender')!.dirty || registerForm.get('gender')!.touched)">
-                            <small *ngIf="registerForm.get('gender')?.errors?.required"
-                                   class="form-text text-danger">
-                                Your gender is required.
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" for="firstName">First Name</label>
+                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Your First Name"
+                               formControlName="firstName" #firstName>
+
+                        <div *ngIf="registerForm.get('firstName')!.invalid && (registerForm.get('firstName')!.dirty || registerForm.get('firstName')!.touched)">
+                            <small class="form-text text-danger"
+                                   *ngIf="registerForm.get('firstName')?.errors?.required">
+                                Your First Name is required.
+                            </small>
+
+                            <small class="form-text text-danger"
+                                   *ngIf="registerForm.get('firstName')?.errors?.minlength">
+                                Your First Name is required to be at least 1 character.
+                            </small>
+
+                            <small class="form-text text-danger"
+                                   *ngIf="registerForm.get('firstName')?.errors?.maxlength">
+                                Your First Name cannot be longer than 50 characters.
+                            </small>
+
+                            <small class="form-text text-danger"
+                                   *ngIf="registerForm.get('firstName')?.errors?.pattern">
+                                Your First Name can only contain letters and digits.
                             </small>
                         </div>
-                    </select>
+                    </div>
                 </div>
 
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" for="lastName">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Your Last Name"
+                               formControlName="lastName" #lastName>
 
-                <div class="form-group">
-                    <label class="form-control-label" for="mobileNumber">Mobile Number</label>
-                    <input #mobileNumber class="form-control" formControlName="mobileNumber" id="mobileNumber"
-                           name="mobileNumber"
-                           placeholder="Mobile Number" type="text">
+                        <div *ngIf="registerForm.get('lastName')!.invalid && (registerForm.get('lastName')!.dirty || registerForm.get('lastName')!.touched)">
+                            <small class="form-text text-danger"
+                                   *ngIf="registerForm.get('lastName')?.errors?.required">
+                                Your Last Name is required.
+                            </small>
 
-                    <div
-                        *ngIf="registerForm.get('mobileNumber')!.invalid && (registerForm.get('mobileNumber')!.dirty || registerForm.get('mobileNumber')!.touched)">
-                        <small *ngIf="registerForm.get('mobileNumber')?.errors?.required"
-                               class="form-text text-danger">
-                            Your Mobile Number is required.
-                        </small>
+                            <small class="form-text text-danger"
+                                   *ngIf="registerForm.get('lastName')?.errors?.minlength">
+                                Your Last Name is required to be at least 1 character.
+                            </small>
 
-                        <small *ngIf="registerForm.get('mobileNumber')?.errors?.minlength"
-                               class="form-text text-danger">
-                            Your Mobile Number is required to be at least 10 character.
-                        </small>
+                            <small class="form-text text-danger"
+                                   *ngIf="registerForm.get('lastName')?.errors?.maxlength">
+                                Your Last Name cannot be longer than 50 characters.
+                            </small>
 
-                        <small *ngIf="registerForm.get('mobileNumber')?.errors?.maxlength"
-                               class="form-text text-danger">
-                            Your Mobile Number cannot be longer than 50 characters.
-                        </small>
+                            <small class="form-text text-danger"
+                                   *ngIf="registerForm.get('lastName')?.errors?.pattern">
+                                Your Last Name can only contain letters and digits.
+                            </small>
+                        </div>
+                    </div>
 
-                        <small *ngIf="registerForm.get('mobileNumber')?.errors?.pattern"
-                               class="form-text text-danger">
-                            Your Mobile Number can only contain letters and digits.
-                        </small>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" for="idNumber">ID Number</label>
+                        <input type="text" class="form-control" id="idNumber" name="idNumber" placeholder="Your ID Number"
+                               formControlName="idNumber" #idNumber>
+
+                        <div *ngIf="registerForm.get('idNumber')!.invalid && (registerForm.get('idNumber')!.dirty || registerForm.get('idNumber')!.touched)">
+                            <small class="form-text text-danger"
+                                   *ngIf="registerForm.get('idNumber')?.errors?.required">
+                                Your ID Number is required.
+                            </small>
+
+                            <small class="form-text text-danger"
+                                   *ngIf="registerForm.get('idNumber')?.errors?.minlength">
+                                Your ID Number is required to be at least 1 character.
+                            </small>
+
+                            <small class="form-text text-danger"
+                                   *ngIf="registerForm.get('idNumber')?.errors?.maxlength">
+                                Your ID Number cannot be longer than 50 characters.
+                            </small>
+
+                            <small class="form-text text-danger"
+                                   *ngIf="registerForm.get('idNumber')?.errors?.pattern">
+                                Your ID Number can only contain letters and digits.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" for="dateOfBirth">Date Of Birth</label>
+                        <input #dateOfBirth class="form-control" formControlName="dateOfBirth" id="dateOfBirth"
+                               name="dateOfBirth" placeholder="Your Date Of Birth" type="date"/>
+                        <div
+                            *ngIf="registerForm.get('dateOfBirth')!.invalid && (registerForm.get('dateOfBirth')!.dirty || registerForm.get('dateOfBirth')!.touched)">
+                            <small *ngIf="registerForm.get('dateOfBirth')?.errors?.required"
+                                   class="form-text text-danger">
+                                Your Date Of Birth is required.
+                            </small>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" for="title">Title</label>
+                        <select #title class="form-control" formControlName="title" id="title" name="title">
+                            <option value="">Please select your title</option>
+                            <option value="Mr">Mr</option>
+                            <option value="Mrs">Mrs</option>
+                            <option value="Miss">Miss</option>
+                            <option value="Dr">Dr</option>
+                            <div
+                                *ngIf="registerForm.get('title')!.invalid && (registerForm.get('title')!.dirty || registerForm.get('title')!.touched)">
+                                <small *ngIf="registerForm.get('title')?.errors?.required"
+                                       class="form-text text-danger">
+                                    Your title is required.
+                                </small>
+                            </div>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" for="title">Gender</label>
+                        <select #gender class="form-control" formControlName="gender" id="gender" name="gender">
+                            <option value="">Please select your gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <div
+                                *ngIf="registerForm.get('gender')!.invalid && (registerForm.get('gender')!.dirty || registerForm.get('gender')!.touched)">
+                                <small *ngIf="registerForm.get('gender')?.errors?.required"
+                                       class="form-text text-danger">
+                                    Your gender is required.
+                                </small>
+                            </div>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" for="mobileNumber">Mobile Number</label>
+                        <input #mobileNumber class="form-control" formControlName="mobileNumber" id="mobileNumber"
+                               name="mobileNumber"
+                               placeholder="Mobile Number" type="text">
+
+                        <div
+                            *ngIf="registerForm.get('mobileNumber')!.invalid && (registerForm.get('mobileNumber')!.dirty || registerForm.get('mobileNumber')!.touched)">
+                            <small *ngIf="registerForm.get('mobileNumber')?.errors?.required"
+                                   class="form-text text-danger">
+                                Your Mobile Number is required.
+                            </small>
+
+                            <small *ngIf="registerForm.get('mobileNumber')?.errors?.minlength"
+                                   class="form-text text-danger">
+                                Your Mobile Number is required to be at least 10 character.
+                            </small>
+
+                            <small *ngIf="registerForm.get('mobileNumber')?.errors?.maxlength"
+                                   class="form-text text-danger">
+                                Your Mobile Number cannot be longer than 50 characters.
+                            </small>
+
+                            <small *ngIf="registerForm.get('mobileNumber')?.errors?.pattern"
+                                   class="form-text text-danger">
+                                Your Mobile Number can only contain letters and digits.
+                            </small>
+                        </div>
                     </div>
                 </div>
 
@@ -266,53 +270,56 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" for="password">New password</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="New password"
-                           formControlName="password">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" for="password">New password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="New password"
+                               formControlName="password">
 
-                    <div *ngIf="registerForm.get('password')!.invalid && (registerForm.get('password')!.dirty || registerForm.get('password')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="registerForm.get('password')?.errors?.required">
-                            Your password is required.
-                        </small>
+                        <div *ngIf="registerForm.get('password')!.invalid && (registerForm.get('password')!.dirty || registerForm.get('password')!.touched)">
+                            <small class="form-text text-danger"
+                                   *ngIf="registerForm.get('password')?.errors?.required">
+                                Your password is required.
+                            </small>
 
-                        <small class="form-text text-danger"
-                               *ngIf="registerForm.get('password')?.errors?.minlength">
-                            Your password is required to be at least 4 characters.
-                        </small>
+                            <small class="form-text text-danger"
+                                   *ngIf="registerForm.get('password')?.errors?.minlength">
+                                Your password is required to be at least 4 characters.
+                            </small>
 
-                        <small class="form-text text-danger"
-                               *ngIf="registerForm.get('password')?.errors?.maxlength">
-                            Your password cannot be longer than 50 characters.
-                        </small>
+                            <small class="form-text text-danger"
+                                   *ngIf="registerForm.get('password')?.errors?.maxlength">
+                                Your password cannot be longer than 50 characters.
+                            </small>
+                        </div>
+
+                        <jhi-password-strength-bar [passwordToCheck]="registerForm.get('password')!.value"></jhi-password-strength-bar>
                     </div>
 
-                    <jhi-password-strength-bar [passwordToCheck]="registerForm.get('password')!.value"></jhi-password-strength-bar>
-                </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" for="confirmPassword">New password confirmation</label>
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm the new password"
+                               formControlName="confirmPassword">
 
-                <div class="form-group">
-                    <label class="form-control-label" for="confirmPassword">New password confirmation</label>
-                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm the new password"
-                           formControlName="confirmPassword">
+                        <div *ngIf="registerForm.get('confirmPassword')!.invalid && (registerForm.get('confirmPassword')!.dirty || registerForm.get('confirmPassword')!.touched)">
+                            <small class="form-text text-danger"
+                                   *ngIf="registerForm.get('confirmPassword')?.errors?.required">
+                                Your confirmation password is required.
+                            </small>
 
-                    <div *ngIf="registerForm.get('confirmPassword')!.invalid && (registerForm.get('confirmPassword')!.dirty || registerForm.get('confirmPassword')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="registerForm.get('confirmPassword')?.errors?.required">
-                            Your confirmation password is required.
-                        </small>
+                            <small class="form-text text-danger"
+                                   *ngIf="registerForm.get('confirmPassword')?.errors?.minlength">
+                                Your confirmation password is required to be at least 4 characters.
+                            </small>
 
-                        <small class="form-text text-danger"
-                               *ngIf="registerForm.get('confirmPassword')?.errors?.minlength">
-                            Your confirmation password is required to be at least 4 characters.
-                        </small>
-
-                        <small class="form-text text-danger"
-                               *ngIf="registerForm.get('confirmPassword')?.errors?.maxlength">
-                            Your confirmation password cannot be longer than 50 characters.
-                        </small>
+                            <small class="form-text text-danger"
+                                   *ngIf="registerForm.get('confirmPassword')?.errors?.maxlength">
+                                Your confirmation password cannot be longer than 50 characters.
+                            </small>
+                        </div>
                     </div>
                 </div>
+
 
                 <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary">Register</button>
             </form>
