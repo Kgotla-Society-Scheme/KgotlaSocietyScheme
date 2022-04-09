@@ -29,7 +29,7 @@
     "jquery": "^3.4.1",
     "jquery.js": "0.0.2-security",
     "mdbootstrap": "^4.15.0",
-    "moment": "2.24.0",
+    "moment": "2.29.2",
     "ng-jhipster": "0.11.5",
     "ngx-cookie": "4.0.2",
     "ngx-infinite-scroll": "8.0.1",
